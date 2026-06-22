@@ -81,7 +81,7 @@ export default function Home() {
         <h1 className="bebas" style={{ fontSize: "clamp(3rem, 9vw, 7rem)", lineHeight: 0.92, marginBottom: "20px" }}>
           Qualquer coisa<br />vira <span style={{ color: "#F5C400" }}>lição</span><br />de vida
         </h1>
-        <p style={{ fontSize: "1rem", color: "#6B6B6B", maxWidth: "480px", margin: "0 auto", lineHeight: 1.6 }}>
+        <p style={{ fontSize: "1rem", color: "#B0ADA6", maxWidth: "480px", margin: "0 auto", lineHeight: 1.6 }}>
           Seu gato morreu? Perdeu o emprego? Queimou o arroz? Não importa — aqui qualquer situação vira um pitch de superação e mindset vencedor.
         </p>
       </div>
@@ -170,7 +170,7 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <div style={{ borderTop: "1px solid #1a1a1a", padding: "24px 32px", display: "flex", justifyContent: "space-between", fontSize: "0.72rem", color: "#333", flexWrap: "wrap", gap: "8px" }}>
+      <div style={{ borderTop: "1px solid #1a1a1a", padding: "24px 32px", display: "flex", justifyContent: "space-between", fontSize: "0.72rem", color: "#6B6B6B", flexWrap: "wrap", gap: "8px" }}>
         <span>© 2026 <strong style={{ color: "#F5C400" }}>CoachThis™</strong> — Todos os lero-leros reservados</span>
         <span>Nenhum guru foi prejudicado na produção deste site</span>
       </div>
