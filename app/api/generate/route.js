@@ -16,7 +16,57 @@ const STYLES = {
   ted: "palestrante de TED Talk que mistura estatística com emoção",
 };
 
+// Rate limiting: 10 requisições por IP a cada 60 segundos
+const rateLimit = new Map();
+
+function checkRateLimit(ip) {
+  const now = Date.now();
+  const windowMs = 60 * 1000; // 60 segundos
+  const maxRequests = 10;
+
+  const entry = rateLimit.get(ip);
+
+  if (!entry) {
+    rateLimit.set(ip, { count: 1, start: now });
+    return true;
+  }
+
+  if (now - entry.start > windowMs) {
+    rateLimit.set(ip, { count: 1, start: now });
+    return true;
+  }
+
+  if (entry.count >= maxRequests) {
+    return false;
+  }
+
+  entry.count++;
+  return true;
+}
+
+// Limpa IPs antigos a cada 5 minutos para não vazar memória
+setInterval(() => {
+  const now = Date.now();
+  for (const [ip, entry] of rateLimit.entries()) {
+    if (now - entry.start > 60 * 1000) {
+      rateLimit.delete(ip);
+    }
+  }
+}, 5 * 60 * 1000);
+
 export async function POST(req) {
+  const ip =
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    req.headers.get("x-real-ip") ||
+    "unknown";
+
+  if (!checkRateLimit(ip)) {
+    return Response.json(
+      { error: "Muitas requisições. Aguarde um momento antes de tentar novamente." },
+      { status: 429 }
+    );
+  }
+
   const { situation, style } = await req.json();
 
   if (!situation) {
