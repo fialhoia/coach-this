@@ -90,7 +90,7 @@ export default function Home() {
       <div style={{ overflow: "hidden", borderTop: "1px solid #1e1e1e", borderBottom: "1px solid #1e1e1e", padding: "10px 0", marginBottom: "48px" }}>
         <div style={{ display: "flex", gap: "48px", animation: "ticker 20s linear infinite", whiteSpace: "nowrap" }}>
           {[...EXAMPLES, ...EXAMPLES].map((ex, i) => (
-            <span key={i} style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#444", flexShrink: 0 }}>{ex} →</span>
+            <span key={i} style={{ fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#BBB", flexShrink: 0 }}>{ex} →</span>
           ))}
         </div>
       </div>
@@ -158,11 +158,11 @@ export default function Home() {
         <h2 className="bebas" style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", letterSpacing: "0.04em", marginBottom: "6px" }}>
           Experimente <span style={{ color: "#F5C400" }}>esses</span>
         </h2>
-        <p style={{ fontSize: "0.85rem", color: "#555", marginBottom: "36px" }}>Clique numa situação para ver a mágica acontecer</p>
+        <p style={{ fontSize: "0.85rem", color: "#BBB", marginBottom: "36px" }}>Clique numa situação para ver a mágica acontecer</p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "12px", maxWidth: "820px", margin: "0 auto" }}>
           {EXAMPLES.map((ex, i) => (
             <button key={i} className="pill" onClick={() => { setSituation(ex); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-              style={{ background: "#111", border: "1px solid #222", borderRadius: "4px", padding: "13px 18px", fontSize: "0.88rem", color: "#6B6B6B", cursor: "pointer", textAlign: "left", transition: "all 0.2s" }}>
+              style={{ background: "#111", border: "1px solid #222", borderRadius: "4px", padding: "13px 18px", fontSize: "0.88rem", color: "#BBB", cursor: "pointer", textAlign: "left", transition: "all 0.2s" }}>
               <span style={{ color: "#F5C400", marginRight: "8px" }}>→</span>{ex}
             </button>
           ))}
@@ -172,7 +172,7 @@ export default function Home() {
       {/* Footer */}
       <div style={{ borderTop: "1px solid #1a1a1a", padding: "24px 32px", display: "flex", justifyContent: "space-between", fontSize: "0.72rem", color: "#6B6B6B", flexWrap: "wrap", gap: "8px" }}>
         <span>© 2026 <strong style={{ color: "#F5C400" }}>CoachThis™</strong> — Todos os lero-leros reservados</span>
-        <span>Nenhum guru foi prejudicado na produção deste site</span>
+        <span>Nenhum guru foi prejudicado na produção deste site</span><span>Powered by <a href="https://www.fluqia.com.br" style={{color:"#F5C400",textDecoration:"none"}} target="_blank">Fluqia</a></span>
       </div>
     </main>
   );
